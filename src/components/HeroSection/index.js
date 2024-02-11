@@ -191,10 +191,10 @@ const ResumeButton = styled.a`
 
 const Img = styled.img`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 60%;
   max-width: 450px;
-  max-height: 500px;
+  max-height: 440px;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.primary};
 
@@ -221,7 +221,7 @@ const Hero = () => {
                 <HeroLeftContainer id='left'>
                     <Title>Hi, I am <br /> {Bio.name}</Title>
                     <TextLoop>
-                            I am a
+                            I am
                             <Span>
                                 <Typewriter
                                     options={{
