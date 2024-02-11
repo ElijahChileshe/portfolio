@@ -5,6 +5,7 @@ import {DiCssdeck} from "react-icons/di";
 import { useTheme } from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { useState } from 'react';
+import { Bio } from '../../data/constants';
 
 
 const Nav = styled.div`
@@ -210,7 +211,7 @@ const Navbar = () => {
             <NavLink href='#education'>Education</NavLink>
             </NavItems>
             <ButtonContainer>
-                <GithubButton>Github Profile</GithubButton>
+                <GithubButton href={Bio.github} target="_blank">Github Profile</GithubButton>
             </ButtonContainer>
 
                 {
