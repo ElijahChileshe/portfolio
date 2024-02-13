@@ -8,6 +8,7 @@ import Education from './components/Education';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Experience from './Experience';
 import Projects from './Projects';
+import Footer from './components/Footer';
 
 
 const Body = styled.div`
@@ -37,6 +38,7 @@ function App() {
               <Wrapper>
                 <Education />
               </Wrapper>
+              <Footer />
           </Body>
       </Router>
 

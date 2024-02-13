@@ -16,6 +16,7 @@ justify-content: center;
 position: relative;
 z-index: 1;
 align-items: center;
+padding-bottom: 2%;
 `
 
 const Wrapper = styled.div`
@@ -71,7 +72,7 @@ const Experience = () => {
     <Container id='experience'>
         <Wrapper>
             <Title>Experience</Title>
-            <Desc>Here are some of my projects</Desc>
+            <Desc>Here is a list of my work experience...</Desc>
             <TimeLineSection>
                 <TimeLine>
                     {experiences.map((experience, index) => (

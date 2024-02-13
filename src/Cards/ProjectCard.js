@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import ProjectDetails from '../ProjectDetails';
 
 const Button = styled.button`
     display: none;
@@ -39,7 +40,7 @@ const Card = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    height: 180px;
+    height: 210px;
     background-color: ${({ theme }) => theme.white};
     border-radius: 10px;
     box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
@@ -121,9 +122,15 @@ const Avatar = styled.img`
     border: 3px solid ${({ theme }) => theme.card};
 `
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({ project }) => {
+    const [openModal, setOpenModal] = useState(false);
+  
+    const handleClick = () => {
+      setOpenModal(true);
+    };
   return (
-    <Card>
+    <>
+    <Card onClick={handleClick}>
         <Image src={project.image} />
         <Tags>
           {project.tags?.map((tag, index) => (
@@ -141,6 +148,8 @@ const ProjectCard = ({project}) => {
           ))}
         </Members>
     </Card>
+    {openModal && <ProjectDetails openModal={{ state: true, project }} setOpenModal={setOpenModal} />}
+    </>
   )
 }
 

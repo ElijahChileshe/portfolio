@@ -7,13 +7,13 @@ export const Bio = {
       // "an ICT Tutor"
     ],
     description:
-      "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+      "I am an enthusiastic and adaptable individual, constantly seeking new challenges. Fueled by a passion for learning, I am committed to delivering exceptional results. With a positive outlook and a mindset geared towards growth, I am prepared to make a significant impact and accomplish remarkable achievements.",
     github: "https://github.com/elijahchileshe",
     resume:
-      "",
+      "https://drive.google.com/file/d/19rfiQiG7K46HF6CNe-9QDCxTxZxQAnEK/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/elijah-chileshe-4277b3187",
-    twitter: "",
-    insta: "",
+    github: "https://github.com/elijahchileshe",
+    gmail: "mailto:chilesheelijah01@gmail.com",
     facebook: "",
   };
   
@@ -223,7 +223,7 @@ export const Bio = {
         {
           name: "Google Colab",
           image:
-            "https://assets.stickpng.com/images/63c2e4c9c4baad4ce22bf9ef.png",
+            "https://logowik.com/content/uploads/images/google-colaboratory6512.jpg",
         },
         // {
         //   name: "Sk Learn Kit",
@@ -235,6 +235,11 @@ export const Bio = {
     {
       title: "Others",
       skills: [
+        {
+          name: "Linux (Ubuntu)",
+          image:
+          "https://seeklogo.com/images/L/Linux_Tux-logo-DA252F3C21-seeklogo.com.png"
+        },
         {
           name: "Git",
           image:
@@ -388,7 +393,7 @@ export const Bio = {
       img: unzaLogo,
       school: "The University of Zambia",
       date: "Apr 2019 - Apr 2025",
-      grade: "3.08/4.0",
+      grade: "Grade: 3.08/4.0",
       desc: "I completed my Undergraduate Degree Program in Information and Communication Technologies from the University of Zambia, Lusaka. Some of the course work includes Computer Systems and Architecture, Computational Mathematics, Computer Programming, Software Engineering and Project Management and Data and Communication Networks",
       degree: "Information and Communication Technologies with Education",
     },

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Bio } from '../../data/constants';
-import HeroImg from '../../Images/Elijah.jpeg'
+import HeroImg from '../../Images/ElijahUNZA.jpeg'
 import HeroBgAnimation from '../../HeroBgAnimation';
 
 

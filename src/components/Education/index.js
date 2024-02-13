@@ -17,6 +17,7 @@ justify-content: center;
 position: relative;
 z-index: 1;
 align-items: center;
+padding-bottom: 2%;
 `
 
 const Wrapper = styled.div`
@@ -69,7 +70,7 @@ const TimeLineSection = styled.div`
 
 const Experience = () => {
   return (
-    <Container id='experience'>
+    <Container id='education'>
         <Wrapper>
             <Title>Education</Title>
             <Desc>My education details are as follows...</Desc>
