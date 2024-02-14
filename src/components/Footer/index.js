@@ -6,8 +6,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { GitHub } from '@mui/icons-material';
 import { Mail } from '@mui/icons-material';
 import { Bio } from '../../data/constants';
+import { motion } from 'framer-motion';
 
-const FooterContainer = styled.div`
+const FooterContainer = styled(motion.div)`
   width: 100%;
   padding: 2rem 0;
   display: flex;
@@ -88,7 +89,11 @@ const Copyright = styled.p`
 
 function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer
+    initial={{ opacity: 0, y: 1 }} // Initial animation state
+        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+        transition={{ duration: 3, ease: 'easeIn' }} //
+>
       <FooterWrapper>
         <Logo>Elijah Chileshe</Logo>
         <Nav>

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from '../Cards/ProjectCard';
 import { projects } from '../data/constants';
+import { motion } from 'framer-motion';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
     display: flex;
     flex-direction: column;
@@ -108,7 +109,11 @@ export const CardContainer = styled.div`
 const Projects = ({openModal,setOpenModal}) => {
     const [toggle, setToggle] = useState("all")
   return (
-    <Container id='projects'>
+    <Container id='projects'
+    initial={{ opacity: 0, y: 1 }} // Initial animation state
+        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+        transition={{ duration: 3, ease: 'easeIn' }} //
+>
         <Wrapper>
             <Title>Projects</Title>
             <Desc>

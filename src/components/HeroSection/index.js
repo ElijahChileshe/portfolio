@@ -4,9 +4,10 @@ import Typewriter from 'typewriter-effect';
 import { Bio } from '../../data/constants';
 import HeroImg from '../../Images/ElijahUNZA.jpeg'
 import HeroBgAnimation from '../../HeroBgAnimation';
+import { motion } from 'framer-motion';
 
 
-const HeroContainer = styled.div`
+const HeroContainer = styled(motion.div)`
   background: ${({ theme }) => theme.card_light};
   display: flex;
   justify-content: center;
@@ -100,7 +101,7 @@ const HeroRightContainer = styled.div`
 
 
 const Title = styled.div`
-  font-weight: 700;
+  font-weight: 500;
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
   line-height: 68px;
@@ -197,6 +198,11 @@ const Img = styled.img`
   max-height: 440px;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.primary};
+  transition: transform 0.5s ease-in-out; /* Add a smooth transition */
+
+  &:hover {
+    transform: scale(1.3); /* Increase the size on hover */
+  }
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -210,10 +216,16 @@ const Img = styled.img`
 `;
 
 
+
 const Hero = () => {
   return (
-    <div id="about">
-        <HeroContainer>
+    <div id="about"
+        >
+        <HeroContainer
+        initial={{ opacity: 0, y: 1 }} // Initial animation state
+        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+        transition={{ duration: 3, ease: 'easeIn' }} //
+    >
             <HeroBg>
                 <HeroBgAnimation />
             </HeroBg>

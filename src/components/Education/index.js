@@ -9,8 +9,9 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../../Cards/ExperienceCard';
 import EducationCard from '../../Cards/EducationCard';
+import { motion } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -70,7 +71,11 @@ const TimeLineSection = styled.div`
 
 const Experience = () => {
   return (
-    <Container id='education'>
+    <Container id='education'
+    initial={{ opacity: 0, y: 1 }} // Initial animation state
+        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+        transition={{ duration: 3, ease: 'easeIn' }} //
+>
         <Wrapper>
             <Title>Education</Title>
             <Desc>My education details are as follows...</Desc>

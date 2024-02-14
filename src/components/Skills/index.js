@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { skills } from '../../data/constants';
-// import { Title } from '@mui/icons-material';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -121,11 +122,16 @@ const SkillImage = styled.img`
 
 const Skills = () => {
   return (
-    <Container id='skills'>
+    <Container 
+    id='skills' 
+    initial={{ opacity: 0, y: 1 }} // Initial animation state
+    animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+    transition={{ duration: 3, ease: 'easeIn' }} // Animation duration and easing
+>
       <Wrapper>
         <Title>Skills</Title>
         <Desc>
-          Here are some of the skills I have obtained over the past 2 years...
+          Here are some of the skills I have gained over the past 2 years...
         </Desc>
         <SkillsContainer>
           {skills.map((item) => (
