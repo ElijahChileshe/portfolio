@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Bio } from '../../data/constants';
-import HeroImg from '../../Images/ElijahUNZA.jpeg'
+import HeroImg from '../../Images/ejay.jpg'
 import HeroBgAnimation from '../../HeroBgAnimation';
 import { motion } from 'framer-motion';
 
@@ -193,7 +193,7 @@ const ResumeButton = styled.a`
 const Img = styled.img`
   position: relative;
   width: 70%;
-  height: 60%;
+  height: 40%;
   max-width: 450px;
   max-height: 440px;
   border-radius: 50%;
