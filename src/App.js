@@ -5,10 +5,11 @@ import Navbar from './components/Navbar';
 import Hero from './components/HeroSection';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Experience from './Experience';
 import Projects from './Projects';
 import Footer from './components/Footer';
+import Blogs from './components/Blogs/Blogs';
 
 
 const Body = styled.div`
@@ -28,8 +29,10 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <Router>
         <Navbar />
-          <Body>
-            <Hero />
+        <Routes>
+          <Route path="/" element={
+            <Body>
+              <Hero />
               <Wrapper>
                 <Skills />
                 <Experience />
@@ -39,7 +42,12 @@ function App() {
                 <Education />
               </Wrapper>
               <Footer />
-          </Body>
+            </Body>
+          } />
+          <Route path="/blogs" element={
+            <Blogs />
+          } />
+        </Routes>
       </Router>
 
     </ThemeProvider>

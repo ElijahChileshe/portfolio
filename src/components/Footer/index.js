@@ -109,7 +109,7 @@ function Footer() {
           <SocialMediaIcon href={Bio.github} target="display"><GitHub /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 Elijah Chileshe. All rights reserved.
+          &copy; 2025 Elijah Chileshe. All rights reserved.
         </Copyright>
 
       </FooterWrapper>
