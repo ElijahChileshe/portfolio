@@ -392,7 +392,7 @@ export const Bio = {
       id: 1,
       img: unzaLogo,
       school: "The University of Zambia",
-      date: "Apr 2019 - Apr 2025",
+      date: "Jan 2018 - Nov 2021",
       grade: "Grade: 3.08/4.0",
       desc: "I completed my Undergraduate Degree Program in Information and Communication Technologies from the University of Zambia, Lusaka. Some of the course work includes Computer Systems and Architecture, Computational Mathematics, Computer Programming, Software Engineering and Project Management and Data and Communication Networks",
       degree: "Information and Communication Technologies with Education",
