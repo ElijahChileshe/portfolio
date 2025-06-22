@@ -220,7 +220,7 @@ const Navbar = () => {
                 {
             isOpen &&
             <MobileMenu isOpen={isOpen}>
-                <MobileLink href="#about" onClick={() => {
+                {/* <MobileLink href="#about" onClick={() => {
                 setIsOpen(!isOpen)
                 }}>About</MobileLink>
                 <MobileLink href='#skills' onClick={() => {
@@ -231,10 +231,10 @@ const Navbar = () => {
                 }}>Experience</MobileLink>
                 <MobileLink href='#projects' onClick={() => {
                 setIsOpen(!isOpen)
-                }}>Projects</MobileLink>
-                <MobileLink href='#education' onClick={() => {
+                }}>Projects</MobileLink> */}
+                <MobileLink href='publications' onClick={() => {
                 setIsOpen(!isOpen)
-                }}>Education</MobileLink>
+                }}>publications</MobileLink>
                 <MobileLink href='/blogs' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>Blogs</MobileLink>
