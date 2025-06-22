@@ -10,7 +10,7 @@ export const Bio = {
       "I hold a Bachelor's Degree in Information and Communication Technologies and a Postgraduate Diploma in Computer Science, I am also pursuing my Msc in Computer Science. I have hands-on experience in full-stack development, with a focus on React, React Native, and Python-based backend systems. I'm currently involved in projects related to medical imaging, data analysis, and system development. I’m passionate about building impactful software solutions, and I'm always eager to collaborate, learn, and contribute meaningfully to team objectives.",
     github: "https://github.com/elijahchileshe",
     resume:
-      "https://drive.google.com/file/d/19rfiQiG7K46HF6CNe-9QDCxTxZxQAnEK/view?usp=sharing",
+      "https://drive.google.com/file/d/1Fh7T9EfCqD9NittdFPAnisqgYUBpQfux/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/elijah-chileshe-4277b3187",
     github: "https://github.com/elijahchileshe",
     gmail: "mailto:chilesheelijah01@gmail.com",

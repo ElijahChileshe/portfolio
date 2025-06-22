@@ -220,22 +220,22 @@ const Navbar = () => {
                 {
             isOpen &&
             <MobileMenu isOpen={isOpen}>
-                {/* <MobileLink href="#about" onClick={() => {
+                {/* <MobileLink to='#about' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>About</MobileLink>
-                <MobileLink href='#skills' onClick={() => {
+                <MobileLink to='#skills' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>Skills</MobileLink>
-                <MobileLink href='#experience' onClick={() => {
+                <MobileLink to='#experience' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>Experience</MobileLink>
-                <MobileLink href='#projects' onClick={() => {
+                <MobileLink to='#projects' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>Projects</MobileLink> */}
-                <MobileLink href='publications' onClick={() => {
+                <MobileLink to='/publications' onClick={() => {
                 setIsOpen(!isOpen)
-                }}>publications</MobileLink>
-                <MobileLink href='/blogs' onClick={() => {
+                }}>Publications</MobileLink>
+                <MobileLink to='/blogs' onClick={() => {
                 setIsOpen(!isOpen)
                 }}>Blogs</MobileLink>
                 {/* <GithubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GithubButton> */}
