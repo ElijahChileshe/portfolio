@@ -211,7 +211,7 @@ const Blogs = () => {
 
   const blogPosts = [
     {
-      title: "Data Science Africa 2025 Experience",
+      title: "Attended Data Science Africa 2025 Experience",
       date: "June 2025",
       content: "Data Science Africa 2025 was a transformative experience that brought together brilliant minds from across Africa and beyond. As a participant, I had the privilege of engaging with cutting-edge research, innovative solutions, and passionate individuals dedicated to advancing data science on the continent."
     },
@@ -221,7 +221,7 @@ const Blogs = () => {
       content: "I won 2nd place in the pitching contest at the Zambia Cybertech Conference, held in Zambia from September 25th to 26th September, 2024, with my pitch titled 'Exploring AI-Driven Innovations for Accelerating Radiology Reporting in Zambia'."
     },
     {
-      title: "Electronic Theses and Disseratoins 2024 Conference Presentations",
+      title: "Electronic Theses and Dissertations 2024 Conference Presentations",
       date: "2024",
       content: "Presented full paper titled 'A Pre-Processing Pipeline for Improved ETD Metadata Quality in Downstream Services' and poster titled 'Design and Implementation of an Interoperable Zambia National Electronic Thesis and Dissertation Portal' at the 27th International Symposium on Electronic Theses and Dissertations (ETD 2024) in Livingstone, Zambia."
     },
