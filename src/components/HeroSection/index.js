@@ -5,6 +5,7 @@ import { Bio } from '../../data/constants';
 import HeroImg from '../../Images/ejay-min.jpg'
 import HeroBgAnimation from '../../HeroBgAnimation';
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 
 
 const HeroContainer = styled(motion.div)`
@@ -163,18 +164,55 @@ const ResumeButton = styled.a`
     max-width: 300px;
     text-align: center;
     padding: 16px 0;
+    margin-bottom: 20px;
     color:${({ theme }) => theme.white};
     border-radius: 20px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: hsla(197, 71%, 73%, 1);
+    background: linear-gradient(225deg, hsla(197, 71%, 73%, 1) 0%, hsla(203, 89%, 75%, 1) 100%);
+    background: -moz-linear-gradient(225deg, hsla(197, 71%, 73%, 1) 0%, hsla(203, 89%, 75%, 1) 100%);
+    background: -webkit-linear-gradient(225deg, hsla(197, 71%, 73%, 1) 0%, hsla(203, 89%, 75%, 1) 100%);
+    box-shadow:  5px 5px 20px #1F2634,
+    -5px -5px 20px #1F2634;
+    &:hover {
+        transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
     box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
+    filter: brightness(1);
+    }    
+    
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 18px;
+    } 
+
+`;
+const AccomplishmentsButton = styled.a`
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: 95%;
+    max-width: 300px;
+    text-align: center;
+    padding: 16px 0;
+    margin-bottom: 20px;
+    color:${({ theme }) => theme.white};
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out !important;
+    background: hsla(145, 60%, 50%, 1);
+    background: linear-gradient(225deg, hsla(145, 60%, 50%, 1) 0%, hsla(152, 70%, 45%, 1) 100%);
+    background: -moz-linear-gradient(225deg, hsla(145, 60%, 50%, 1) 0%, hsla(152, 70%, 45%, 1) 100%);
+    background: -webkit-linear-gradient(225deg, hsla(145, 60%, 50%, 1) 0%, hsla(152, 70%, 45%, 1) 100%);
+    box-shadow:  5px 5px 20px #1F2634,
+    -5px -5px 20px #1F2634;
     &:hover {
         transform: scale(1.05);
     transition: all 0.4s ease-in-out;
@@ -246,6 +284,9 @@ const Hero = () => {
                     </TextLoop>
                     <SubTitle>{Bio.description}</SubTitle>
                     <ResumeButton href={Bio.resume} target='display'>Check Resume</ResumeButton>
+                    <NavLink to="/blogs" target="display" style={{ textDecoration: 'none' }}>
+                  <AccomplishmentsButton>Personal Accomplishments</AccomplishmentsButton>
+                  </NavLink>
                 </HeroLeftContainer>
                 <HeroRightContainer>
                     <Img src={HeroImg} alt="hero-image" />

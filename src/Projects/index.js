@@ -5,7 +5,7 @@ import { projects } from '../data/constants';
 import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
-    background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
+    background: linear-gradient(343.07deg, rgba(0, 191, 255, 0.06) 5.71%, rgba(0, 191, 255, 0) 64.83%);
     display: flex;
     flex-direction: column;
     justify-content: center;
