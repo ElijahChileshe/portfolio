@@ -41,7 +41,7 @@ const BlogHeader = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: ${({ theme }) => theme.primary};
+  color: #87CEEB;
   font-weight: 700;
 
   @media (max-width: 768px) {
