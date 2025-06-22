@@ -5,36 +5,23 @@ import { Bio } from '../../data/constants';
 import HeroImg from '../../Images/ejay-min.jpg'
 import HeroBgAnimation from '../../HeroBgAnimation';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
 
 
 const HeroContainer = styled(motion.div)`
-  background: ${({ theme }) => theme.bg};
+  background: ${({ theme }) => theme.card_light};
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 120px 30px;
-  min-height: 100vh;
-  overflow: hidden;
-  
+  padding: 80px 30px;
   @media (max-width: 960px) {
-    padding: 80px 16px;
+    padding: 66px 16px;
   }
-  @media (max-width: 640px) {
-    padding: 60px 16px;
+  @media (max-width: 640) {
+    padding: 32px 16px;
   }
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(204, 0, 187, 0.05) 0%, rgba(201, 32, 184, 0.05) 100%);
-    z-index: 0;
-  }
+  z-index: 1;
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
 
 const HeroBg = styled.div`
@@ -61,46 +48,53 @@ const HeroBg = styled.div`
   }
 `;
 
-const HeroInnerContainer = styled(motion.div)`
+const HeroInnerContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  gap: 4rem;
-  
+  max-width: 1100px;
+
   @media (max-width: 960px) {
     flex-direction: column;
-    text-align: center;
-    gap: 3rem;
   }
 `;
-const HeroLeftContainer = styled(motion.div)`
+const HeroLeftContainer = styled.div`
   width: 100%;
   order: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  
   @media (max-width: 960px) {
     order: 2;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    order: 2;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 `;
 
-const HeroRightContainer = styled(motion.div)`
+const HeroRightContainer = styled.div`
   width: 100%;
-  order: 2;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-  
+  order: 2;
+  justify-content: end;
+  gap: 12px;
   @media (max-width: 960px) {
     order: 1;
     justify-content: center;
-    margin-bottom: 4rem;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 30px;
   }
 `;
 
@@ -161,37 +155,39 @@ const SubTitle = styled.div`
 `;
 
 const ResumeButton = styled.a`
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  text-decoration: none;
-  width: 95%;
-  max-width: 300px;
-  text-align: center;
-  padding: 16px 0;
-  color: ${({ theme }) => theme.white};
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out !important;
-  background: hsla(271, 100%, 50%, 1);
-  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  box-shadow:  20px 20px 60px #1F2634,
-  -20px -20px 60px #1F2634;
-  &:hover {
-    transform: scale(1.05);
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: 95%;
+    max-width: 300px;
+    text-align: center;
+    padding: 16px 0;
+    color:${({ theme }) => theme.white};
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out !important;
+    background: hsla(271, 100%, 50%, 1);
+    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    box-shadow:  20px 20px 60px #1F2634,
+    -20px -20px 60px #1F2634;
+    &:hover {
+        transform: scale(1.05);
     transition: all 0.4s ease-in-out;
     box-shadow:  20px 20px 60px #1F2634,
     filter: brightness(1);
-  }    
+    }    
     
-  @media (max-width: 640px) {
-    padding: 12px 0;
-    font-size: 18px;
-  } 
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 18px;
+    } 
+
 `;
 
 const Img = styled.img`
@@ -219,88 +215,45 @@ const Img = styled.img`
   }
 `;
 
+
+
 const Hero = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
-  });
-
   return (
-    <div ref={ref}>
-      <HeroContainer
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <HeroBg>
-          <HeroBgAnimation />
-        </HeroBg>
-        <HeroInnerContainer
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+    <div id="about"
         >
-          <HeroLeftContainer
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
-              style={{ color: 'var(--primary-color)', fontSize: '4rem', fontWeight: 700 }}
-            >
-              {Bio.name}
-            </motion.h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.7 }}
-              style={{ fontSize: '2rem', marginBottom: '1rem' }}
-            >
-              {Bio.role}
-            </motion.h2>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
-              style={{ fontSize: '1.2rem', lineHeight: '1.6' }}
-            >
-              <Typewriter
-                options={{
-                  strings: Bio.roleDescription,
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 20,
-                  delay: 50
-                }}
-              />
-            </motion.h3>
-          </HeroLeftContainer>
-          <HeroRightContainer
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-          >
-            <motion.img
-              src={HeroImg}
-              alt="Hero"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
-              style={{ 
-                borderRadius: '12px', 
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                width: '400px',
-                height: 'auto'
-              }}
-            />
-          </HeroRightContainer>
-        </HeroInnerContainer>
-      </HeroContainer>
+        <HeroContainer
+        initial={{ opacity: 0, y: 1 }} // Initial animation state
+        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
+        transition={{ duration: 3, ease: 'easeIn' }} //
+    >
+            <HeroBg>
+                <HeroBgAnimation />
+            </HeroBg>
+            <HeroInnerContainer>
+                <HeroLeftContainer id='left'>
+                    <Title>Hi, I am <br /> {Bio.name}</Title>
+                    <TextLoop>
+                            I am
+                            <Span>
+                                <Typewriter
+                                    options={{
+                                        strings: Bio.roles,
+                                        autoStart: true,
+                                        loop: true,
+                                    }}
+                                />
+                            </Span>
+                    </TextLoop>
+                    <SubTitle>{Bio.description}</SubTitle>
+                    <ResumeButton href={Bio.resume} target='display'>Check Resume</ResumeButton>
+                </HeroLeftContainer>
+                <HeroRightContainer>
+                    <Img src={HeroImg} alt="hero-image" />
+                </HeroRightContainer>
+            </HeroInnerContainer>
+        </HeroContainer>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
