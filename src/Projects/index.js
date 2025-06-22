@@ -3,165 +3,219 @@ import styled from 'styled-components';
 import ProjectCard from '../Cards/ProjectCard';
 import { projects } from '../data/constants';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export const Container = styled(motion.div)`
-    background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 64.83%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    align-items: center;
-    clip-path: polygon(0 0, 100% 0, 100% 100%,100% 98%, 0 100%);
-`;
+  width: 100%;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
 
-export const Wrapper = styled.div`
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1350px;
-    padding: 10px 0px 100px 0;
-    gap: 12px;
-    @media (max-width: 960px) {
-        flex-direction: column;
-    }
-`;
-
-export const Title = styled.div`
-font-size: 42px;
-text-align: center;
-font-weight: 600;
-margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
   @media (max-width: 768px) {
-      margin-top: 12px;
-      font-size: 32px;
+    padding: 2rem 1rem;
   }
 `;
 
-export const Desc = styled.div`
-    font-size: 18px;
-    text-align: center;
-    max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
-    @media (max-width: 768px) {
-        margin-top: 12px;
-        font-size: 16px;
-    }
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  gap: 3rem;
+  padding: 2rem;
+  background: ${({ theme }) => theme.card};
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px ${({ theme }) => theme.shadow};
+  border: 1px solid ${({ theme }) => theme.border};
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+`;
+
+export const Title = styled(motion.h2)`
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: ${({ theme }) => theme.text_primary};
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+export const Desc = styled(motion.p)`
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 1.5rem auto 2rem;
+  color: ${({ theme }) => theme.text_secondary};
+  line-height: 1.8;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin: 1rem auto;
+  }
 `;
 
 export const ToggleButtonGroup = styled.div`
-    display: flex;
-    border: 1.5px solid ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.primary};
-    font-size: 16px;
-    border-radius: 12px;
-    font-weight: 500;
-    margin: 22px 0px;
-    @media (max-width: 768px) {
-        font-size: 12px;
-    }
-`
+  display: flex;
+  border: 1px solid ${({ theme }) => theme.border};
+  background: ${({ theme }) => theme.hover};
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 0.9rem;
+  border-radius: 12px;
+  font-weight: 500;
+  margin: 2rem 0;
+  padding: 0.5rem;
+  gap: 0.5rem;
 
-export const ToggleButton = styled.div`
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    ${({ active, theme }) =>
-        active && `
-    background: ${theme.primary + 20};
-    `
-    }
-    &:hover {
-        background: ${({ theme }) => theme.primary + 8};
-    }
-    @media (max-width: 768px) {
-        padding: 6px 8px;
-        border-radius: 4px;
-    }
-`
-export const Divider = styled.div`
-    width: 1.5px;
-    background: ${({ theme }) => theme.primary};
-`
-
-export const CardContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
     flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-gap: 32px;
-    // grid-auto-rows: minmax(100px, auto);
-    // @media (max-width: 960px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    // @media (max-width: 640px) {
-    //     grid-template-columns: repeat(1, 1fr);
-    // }
+  }
 `;
 
-const Projects = ({openModal,setOpenModal}) => {
-    const [toggle, setToggle] = useState("all")
+export const ToggleButton = styled.div`
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background: ${({ active, theme }) => active ? theme.primary : 'transparent'};
+  color: ${({ active, theme }) => active ? 'white' : theme.text_primary};
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.hover};
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.3rem 0.8rem;
+  }
+`;
+
+export const Divider = styled.div`
+  width: 1px;
+  background: ${({ theme }) => theme.border};
+  height: 1.2rem;
+  margin: 0 0.5rem;
+`;
+
+export const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const Projects = ({ openModal, setOpenModal }) => {
+  const [toggle, setToggle] = useState("all");
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
   return (
-    <Container id='projects'
-    initial={{ opacity: 0, y: 1 }} // Initial animation state
-        animate={{ opacity: 50, y: 0 }} // Animation state when component enters the viewport
-        transition={{ duration: 3, ease: 'easeIn' }} //
->
-        <Wrapper>
-            <Title>Projects</Title>
-            <Desc>
-                Here is a list of some of the projects I have been working on...
-            </Desc>
-            <ToggleButtonGroup>
-                {toggle === 'all' ? (
-                    <ToggleButton active value='all' onClick={() => setToggle('all')}>ALL</ToggleButton>
-                ): (
-                    <ToggleButton value='all' onClick={() => setToggle('all')}>ALL</ToggleButton>
-                )}
-                    <Divider />
+    <Container ref={ref}>
+      <Wrapper
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Title
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Projects
+        </Title>
+        <Desc
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Here are some of my recent projects that showcase my skills and expertise
+        </Desc>
+        <ToggleButtonGroup>
+          <ToggleButton
+            value="all"
+            onClick={() => setToggle('all')}
+            active={toggle === 'all'}
+          >
+            All
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            value="web app"
+            onClick={() => setToggle('web app')}
+            active={toggle === 'web app'}
+          >
+            Web Apps
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            value="android app"
+            onClick={() => setToggle('android app')}
+            active={toggle === 'android app'}
+          >
+            Android Apps
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            value="machine learning"
+            onClick={() => setToggle('machine learning')}
+            active={toggle === 'machine learning'}
+          >
+            Machine Learning
+          </ToggleButton>
+        </ToggleButtonGroup>
 
-                    {toggle === 'web app' ? (
-                    <ToggleButton active value='web app' onClick={() => setToggle('web app')}>Web apps</ToggleButton>
-                ): (
-                    <ToggleButton value='web app' onClick={() => setToggle('web app')}>Web apps</ToggleButton>
-                )}
-                    <Divider />
-
-                    {toggle === 'android app' ? (
-                    <ToggleButton active value='android app' onClick={() => setToggle('android app')}>Android apps</ToggleButton>
-                ): (
-                    <ToggleButton value='android app' onClick={() => setToggle('android app')}>Android apps</ToggleButton>
-                )}
-                    <Divider />
-
-                    {toggle === 'machine learning' ? (
-                    <ToggleButton active value='machine learning' onClick={() => setToggle('machine learning')}>Machine learning</ToggleButton>
-                ): (
-                    <ToggleButton value='machine learning' onClick={() => setToggle('machine learning')}>Machine learning</ToggleButton>
-                )}
-                    <Divider />
-            </ToggleButtonGroup>
-
-            <CardContainer>
-            {toggle === 'all' && projects.map((project) => <ProjectCard project={project}/>)}
-            {projects
-                .filter((item) => item.category === toggle)
-                .map((project) => (
-                    <ProjectCard project={project} />
-                ))}
-            </CardContainer>
-
-        </Wrapper>
+        <CardContainer
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          {toggle === 'all' ? (
+            projects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              />
+            ))
+          ) : (
+            projects
+              .filter((item) => item.category === toggle)
+              .map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  openModal={openModal}
+                  setOpenModal={setOpenModal}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                />
+              ))
+          )}
+        </CardContainer>
+      </Wrapper>
     </Container>
+  );
+};
 
-  )
-}
-
-export default Projects
+export default Projects;
