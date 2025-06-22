@@ -6,12 +6,16 @@ import Footer from '../Footer';
 
 const BlogContainer = styled.div`
   width: 100%;
-  // min-height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: ${({ theme }) => theme.bg};
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const BlogWrapper = styled.div`
@@ -19,48 +23,69 @@ const BlogWrapper = styled.div`
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 1.5rem;
   background-color: ${({ theme }) => theme.bgLight};
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 4rem auto;
+  margin: 3rem auto;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    margin: 2rem auto;
+  }
 `;
 
 const BlogHeader = styled.h1`
   font-size: 2.5rem;
-  margin-bottom: 3rem;
-  text-align: left;
+  margin-bottom: 2rem;
+  text-align: center;
   color: ${({ theme }) => theme.primary};
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const BlogContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
 `;
 
 const BlogPost = styled.div`
   background: ${({ theme }) => theme.card};
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  gap: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 1.5rem;
   color: ${({ theme }) => theme.text_primary};
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  touch-action: manipulation;
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    margin: 0 auto;
   }
 `;
 
@@ -70,12 +95,24 @@ const BlogTitle = styled.h2`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 600;
   text-align: center;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const BlogDate = styled.p`
   color: ${({ theme }) => theme.text_secondary};
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 0.9rem;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
 `;
 
 const BlogImage = styled.div`
@@ -93,30 +130,37 @@ const ImageContainer = styled.div`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: transform 0.3s ease;
   }
 
-  &:hover {
-    border-color: ${({ theme }) => theme.primary};
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  @media (max-width: 768px) {
+    height: 200px;
   }
 
-  &:hover img {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    &:hover {
+      border-color: ${({ theme }) => theme.primary};
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
   }
 `;
 
 const BlogText = styled.div`
-  flex: 1;
   line-height: 1.8;
   color: ${({ theme }) => theme.text_primary};
   font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
   strong {
     color: ${({ theme }) => theme.text_primary};
@@ -125,9 +169,17 @@ const BlogText = styled.div`
   a {
     color: ${({ theme }) => theme.primary};
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
     }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 `;
 
