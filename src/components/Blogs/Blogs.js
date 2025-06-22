@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from 'styled-components';
-import ejayImg from '../../Images/DSA 1.jpg';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../Footer';
 
 const BlogContainer = styled.div`
   width: 100%;
-  padding: 2rem 0;
+  // min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: ${({ theme }) => theme.bg};
+  padding: 2rem;
 `;
 
 const BlogWrapper = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -21,12 +24,14 @@ const BlogWrapper = styled.div`
   background-color: ${({ theme }) => theme.bgLight};
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 4rem auto;
+  align-items: center;
 `;
 
 const BlogHeader = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  text-align: center;
+  text-align: left;
   color: ${({ theme }) => theme.primary};
   font-weight: 700;
 `;
@@ -35,6 +40,10 @@ const BlogContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
 `;
 
 const BlogPost = styled.div`
@@ -43,9 +52,11 @@ const BlogPost = styled.div`
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  display: flex;
   gap: 2rem;
   color: ${({ theme }) => theme.text_primary};
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 
   &:hover {
     transform: translateY(-3px);
@@ -58,6 +69,7 @@ const BlogTitle = styled.h2`
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.text_primary};
   font-weight: 600;
+  text-align: center;
 `;
 
 const BlogDate = styled.p`
@@ -121,6 +133,29 @@ const BlogText = styled.div`
 
 const Blogs = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  // Handle hash navigation
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash) {
+        navigate('/');
+      }
+    };
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Initial check
+    if (window.location.hash) {
+      navigate('/');
+    }
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [navigate]);
 
   const blogPosts = [
     {
@@ -151,7 +186,7 @@ const Blogs = () => {
         <BlogHeader>My Blog Posts</BlogHeader>
         <BlogContent>
           {blogPosts.map((post, index) => (
-            <BlogPost key={index} index={index}>
+            <BlogPost key={index}>
               <div>
                 <BlogTitle>{post.title}</BlogTitle>
                 <BlogDate>{post.date}</BlogDate>
@@ -163,6 +198,7 @@ const Blogs = () => {
           ))}
         </BlogContent>
       </BlogWrapper>
+      <Footer />
     </BlogContainer>
   );
 };
