@@ -10,6 +10,7 @@ import Experience from './Experience';
 import Projects from './Projects';
 import Footer from './components/Footer';
 import Blogs from './components/Blogs/Blogs';
+import Publications from './components/Publications/Publications';
 
 
 const Body = styled.div`
@@ -49,6 +50,9 @@ function App() {
           } />
           <Route path="/blogs" element={
             <Blogs />
+          } />
+          <Route path="/publications" element={
+            <Publications />
           } />
         </Routes>
       </Router>

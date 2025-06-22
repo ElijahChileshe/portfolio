@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link as LinkR} from "react-router-dom"
+import {Link as LinkR} from "react-router-dom";
 import {DiCssdeck} from "react-icons/di";
 import { useTheme } from 'styled-components';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
 import { Bio } from '../../data/constants';
 
@@ -74,7 +74,7 @@ const NavItems = styled.ul`
     }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(LinkR)`
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
     cursor: pointer;
@@ -151,7 +151,7 @@ const MobileMenu = styled.div`
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
 `
 
-const MobileLink = styled.a`
+const MobileLink = styled(LinkR)`
   color: ${({ theme }) => theme.text_primary};
   font-weight: 500;
   cursor: pointer;
@@ -190,26 +190,27 @@ const Navbar = () => {
   const theme = useTheme()
  
 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Nav>
         <NavContainer>
             <NavLogo to='/'>
-            <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
-                <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-            </a>
+              <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
             </NavLogo>
             <MobileIcon>
-                <FaBars onClick={() => {
-                setIsOpen(!isOpen)
-                }} />
+                {isOpen ? <FaTimes onClick={toggle} /> : <FaBars onClick={toggle} />}
             </MobileIcon>
             <NavItems>
-            <NavLink href="#about">About</NavLink>
-            <NavLink href='#skills'>Skills</NavLink>
-            <NavLink href='#experience'>Experience</NavLink>
-            <NavLink href='#projects'>Projects</NavLink>
-            <NavLink href='#education'>Education</NavLink>
-            <NavLink href='/blogs'>Blogs</NavLink>
+            <NavLink to='/' onClick={closeMobileMenu}>Home</NavLink>
+            <NavLink to='/blogs' onClick={closeMobileMenu}>Blogs</NavLink>
+            <NavLink to='/publications' onClick={closeMobileMenu}>Publications</NavLink>
             </NavItems>
             <ButtonContainer>
                 <GithubButton href={Bio.github} target="_blank">Github Profile</GithubButton>

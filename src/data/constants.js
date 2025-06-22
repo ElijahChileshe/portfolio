@@ -279,6 +279,63 @@ export const Bio = {
     },
   ];
   
+  export const publications = [
+    {
+      id: 1,
+      title: "Zambia National ETD Portal: Implementation of an Interoperable National Electronic Thesis and Dissertation Portal",
+      authors: "Elijah Chileshe, Lighton Phiri",
+      journal: "",
+      year: "2025",
+      doi: "",
+      link: "http://docs.ndltd.org/collection/etd2024/docs-poster-etd24-47.pdf"
+    },
+    {
+      id: 2,
+      title: "Intelligent DICOM Viewers for Low-Resource Settings: Lightweight In-Browser Intelligent DICOM Viewers for Semi-Automated Analysis of Medical Images",
+      authors: "Malaizyo Muzumala, Andrew Shawa, Elijah Chileshe, Peter Chibuta, Lighton Phiri",
+      journal: "Proceedings of the International Conference on Information and Communication Technology (ICICT)",
+      year: "2025",
+      doi: "",
+      link: ""
+    },
+    {
+      id: 3,
+      title: "User Centred Design and Implementation of Useful Picture Archiving and Communication Systems for Effective Radiological Workflows in Public Health Facilities in Zambia",
+      authors: "Andrew Shawa, Elijah Chileshe, Brighton Mwaba, John Mwanza, Wilkins Sikazwe, Ernest Obbie Zulu, Lighton Phiri",
+      journal: "Annual Conference of South African Institute of Computer Scientists and Information Technologists",
+      year: "2024",
+      doi: "",
+      link: "https://link.springer.com/chapter/10.1007/978-3-031-64881-6_10"
+    },
+    {
+      id: 4,
+      title: "Evaluating DICOM Compliance for Medical Images in Public Health Facilities in Zambia",
+      authors: "Elijah Chileshe, Mr Claytone Sikasote, Lighton Phiri",
+      journal: "",
+      year: "2024",
+      doi: "",
+      link: "https://datalab.unza.zm/sites/default/files/2024-06/etds-datalab24-pdip-dissertation-elijah_chileshe.pdf"
+    },
+    {
+      id: 5,
+      title: "Large-scale analysis of medical image metadata",
+      authors: "Elijah Chileshe, Lighton Phiri",
+      journal: "Proceedings of International Conference for ICT (ICICT)-Zambia",
+      year: "2023",
+      doi: "",
+      link: "https://ictjournal.icict.org.zm/index.php/icict/article/view/277"
+    },
+    {
+      id: 6,
+      title: "Effective Tools for Self-Archiving in Institutional Repositories",
+      authors: "Trey Chakulya, Elijah Chileshe, Sharon Kangwa, Royce Mwanza, Victor Mwelwa",
+      journal: "University of Zambia",
+      year: "2021",
+      doi: "",
+      link: ""
+    }
+  ];
+
   export const experiences = [
     {
       id: 0,
