@@ -244,12 +244,14 @@ const Img = styled.img`
 
   @media (max-width: 768px) {
     max-width: 400px;
-    max-height: 400px;
+    max-height: 600px;
+    height: 250px;
   }
 
   @media (max-width: 640px) {
     max-width: 280px;
-    max-height: 280px;
+    max-height: 400px;
+    height: 250px;
   }
 `;
 
