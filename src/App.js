@@ -1,17 +1,18 @@
 import './App.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { whiteTheme } from './utils/Themes';
+import { Bio } from './data/constants';
+import SEO from './components/SEO/SEO';
 import Navbar from './components/Navbar';
 import Hero from './components/HeroSection';
 import Skills from './components/Skills';
-import Education from './components/Education';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Experience from './Experience';
 import Projects from './Projects';
-import Footer from './components/Footer';
 import Blogs from './components/Blogs/Blogs';
 import Publications from './components/Publications/Publications';
-
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Education from './components/Education';
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -32,6 +33,7 @@ function App() {
   return (
     <ThemeProvider theme={whiteTheme}>
       <Router>
+        <SEO title="Home" description="Elijah Chileshe's portfolio showcasing professional experience, projects, and publications in software engineering and AI/ML." path="/" />
         <Navbar />
         <Routes>
           <Route path="/" element={
