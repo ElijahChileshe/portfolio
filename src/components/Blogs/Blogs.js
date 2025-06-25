@@ -211,6 +211,11 @@ const Blogs = () => {
 
   const blogPosts = [
     {
+      title: "🎉 I have been awarded the 2025 Linux Foundation Training (LiFT) Scholarship!",
+      date: "June 2025",
+      content: "I'm excited to share that I’ve been selected as a recipient of the 2025 Linux Foundation Training (LiFT) Scholarship! This scholarship recognizes individuals who are passionate about Linux and open-source technologies and supports them with training resources to advance their skills and careers. Being chosen for this opportunity is a huge honor and a motivating step forward in my journey as a Linux and system administration professional."
+    },
+    {
       title: "Attended Data Science Africa 2025 (DSA 2025)",
       date: "June 2025",
       content: "I attended Data Science Africa 2025, held in Ibadan, Nigeria from June 2nd to 6th. It was a transformative experience that brought together brilliant minds from across Africa and beyond. As a participant, I had the privilege of engaging with cutting-edge research, innovative solutions, and passionate individuals dedicated to advancing data science on the continent."
