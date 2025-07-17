@@ -9,4 +9,5 @@ export const whiteTheme = {
     button: "#00bfff",
     white: "#FFFFFF",
     black: "#000000",
+    blue: "blue"
 }
